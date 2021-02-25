@@ -1,127 +1,42 @@
 'use strict';
 
-console.log(a); // hoisting
-var test;
-var a = 1;
-// console.log(b);
-let b = 2;
-const c = 3;
-console.log(a, b, c);
+// Перевод температуры из Цельсия в Фаренгейт
 
-// // test = 123;
-//
-// function foo() {
-//     var g = 123;
-//     console.log(a, b, c);
-// }
-//
-// // console.log(g);
-// foo();
+let tempCelsius = prompt('Введите температуру в градусах по Цельсию:');
+let tempFahrenheit = (9 / 5) * tempCelsius + 32;
 
-// const superUserName = 'Vasya'; // $_ camelCase
+alert(tempCelsius + ' градусов по Цельсию = ' + tempFahrenheit + ' градусов по Фаренгейту');
 
-/**/
+// Работа с переменными
 
-// /**
-//  *
-//  * @param param1 {number}
-//  * @param param2 {number}
-//  * @returns {number}
-//  */
-// function foo(param1, param2) {
-//     return param1 * param2;
-// }
+let admin;
+let name;
 
-// String
-// let a = 'Привет';
-// let a = "Привет";
-// let a = `Привет`;
-// console.log(typeof a);
+alert('Мы имеем две переменные:\nadmin = ' + admin + '\nname = ' + name);
 
-// перенос строки
-// console.log('первая строка\nвторая строка');
-// console.log(`первая строка
-// вторая строка`);
-// console.log('первая строка\
-//  вторая строка');
+name = prompt('Введите данные переменной name: ');
+admin = name;
 
-// console.log('Он сказал - "Привет!".');
-// console.log('Он сказал - \'Привет!\'.');
-// console.log("Он сказал - 'Привет!'.");
-// console.log("Он сказал - \"Привет!\".");
-// console.log(`Он сказал\` - 'Привет!".`);
+alert('name = ' + name + '\nadmin = ' + admin);
 
-// number
-// const a = 1;
-// const b = 3.14;
-// const c = 10 / 0;
-// console.log(typeof a);
-// console.log(typeof b);
-// console.log(typeof c);
-// console.log(c);
-// console.log(10 * 'hi'); // => console.log(10 * NaN); => NaN
+// Чему будет равно JS-выражение 1000 + '108'/
 
-// let b = '3.14';
-// console.log(typeof b);
-//
-// b = +b; // b = 3.14;
-// b = -b; // b = -3.14;
-// console.log(b);
-// console.log(typeof b);
-// console.log(parseInt(b));
-// console.log(parseFloat(b));
-// console.log(Number(b));
+/*
+В данном случае произойдет "склеивание" этих значений,
+так как в первом случае - число, во втором - строка.
+JS в таком случае оба значения приводик к типу строки и
+происходит конкатенация строк.
+*/
 
-// console.log(2e3);
-// console.log(2e-3);
+console.log(1000 + '108');
 
-// boolean (true / false)
-// null
-// undefined
-// symbol
-
-// const a = null;
-// console.log(typeof null);
-
-// const a = function () {
-//
-// };
-// console.log(typeof a);
-
-// Арифметические
-// console.log(6 + 4);
-// console.log(6 - 4);
-// console.log(6 * 4);
-// console.log(6 / 4);
-// console.log(6 ** 4);
-// console.log(6 % 3);
-
-// сокращения присвоения
-// let a = 1;
-// a = a + 2;
-// a += 2;
-// a -= 2;
-// a *= 2;
-// a /= 2;
-// a %= 2;
-// console.log(a);
-
-// конкатенация
-// console.log('первая строка' + 'вторая строка');
-// console.log('1' + '1'); // 11
-// console.log('1' + 1); // => '1' + '1' => '11'
-// console.log(1 + '1'); // => '1' + '1' => '11'
-// console.log(1 + 1); // 2
-// console.log(+'1' + +'1'); // 2
-// console.log(Number('1') + Number('1')); // 2
-
-// Сравнение
-// const a = 5; b = 5;
-// a > b;
-// a >= b;
-// a < b;
-// a <= b;
-// a == b;
-// a === b;
-// a != b;
-// a !== b;
+/* 
+Async и defer - асинхронные скрипты, которые не задерживают загрузку общей страницы.
+Различия:
+1) 
+Async может нарушить порядок скриптов, то есть первым срабатывает тот, который загрузился раньше.
+// Defer же не нарушает порядок и первым всегда срабатывает тот, который идет первым в списке.
+2) 
+Async выполняет скрипты по мере их загрузки.
+Defer ждет готовности всего документа и только после запускает скрипты. 
+*/
