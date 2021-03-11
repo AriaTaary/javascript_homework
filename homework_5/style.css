@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-block{
+    padding: 20px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.buttons button{
+    margin: 0 20px;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.view{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* .chesstable{
+    margin-bottom: 40px;
+} */
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.cell{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.cell-black{
+    background-color: black;
+}
+
+.cell-white{
+    background-color: white;
+}
+
+#letters_row{
+    margin-left: 30px;
+}
+
+.chess_text{
+    width: 30px;
+    height: 30px;
+}
+
+.chess_text p{
+    color: red;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+}
+
+.basket{
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.basket-title, .catalog-title{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.basket-message{
+    text-align: center;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+table{
+    /* border: 1px solid black; */
+     border-spacing: 0;
+     border-collapse: collapse;
+}
