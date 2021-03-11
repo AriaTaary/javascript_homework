@@ -2,16 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lesson 4</title>
+    <title>Lesson 5</title>
 
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> -->
 
     <script src="./script.js"></script>
 </head>
 <body>
-    <div class="main container">
+    <!-- <div class="main container">
         <nav class="menu">
             <ul class="menu-list">
                 <li class="menu-item">
@@ -36,8 +39,16 @@
         </nav>
         <div class="title">
             <h1>HomeWork</h1>
-            <h2>№ 4</h2>
+            <h2>№ 5</h2>
         </div>
+    </div> -->
+    <div class="main-block">
+        <div class="buttons">
+            <button type="button" id="button-chess" onclick="Chess();">Шахматная доска</button>
+            <button type="button" id="button-basket" onclick="Basket();">Корзина</button>
+            <button type="button" id="button-catalog" onclick="Catalog();">Каталог</button>
+        </div>
+        <div class="view" id="view"></div>
     </div>
 </body>
 </html>
