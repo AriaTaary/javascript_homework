@@ -93,4 +93,5 @@ table{
     /* border: 1px solid black; */
      border-spacing: 0;
      border-collapse: collapse;
+     margin-bottom: 20px;
 }

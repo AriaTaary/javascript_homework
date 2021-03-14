@@ -108,24 +108,24 @@ function Chess() {
 const itemsInCart = {
     products: [
         {
-            name: 'ноутбук',
-            price: 45000,
-            count: 1,
+            'название': 'ноутбук',
+            'цена': 45000,
+            'количество': 1,
         },
         {
-            name: 'монитор',
-            price: 25000,  
-            count: 2,
+            'название': 'монитор',
+            'цена': 25000,  
+            'количество': 2,
         },
         {
-            name: 'клавиатура',
-            price: 5000,
-            count: 2,
+            'название': 'клавиатура',
+            'цена': 5000,
+            'количество': 2,
         },
         {
-            name: 'мышь',
-            price: 3500,
-            count: 2,
+            'название': 'мышь',
+            'цена': 3500,
+            'количество': 2,
         }
     ],
     totalBasketPrice() {
@@ -140,6 +140,31 @@ function Basket(){
     title.className = "basket-title";
     title.innerHTML = "<p> Корзина: </p>";
     document.getElementById('view').appendChild(title);
+
+    // создаем таблицу
+    let table = document.createElement("table");
+    document.getElementById('view').appendChild(table);
+
+    // создаем заголовок таблицы с значениями свойств объекта
+    const tr = document.createElement('tr');
+    table.appendChild(tr);
+    for (let key in itemsInCart.products[0]) {
+        const th = document.createElement('th');
+        th.innerHTML = key;
+        tr.appendChild(th);
+    }
+
+    // заполняем таблицу значениями
+    for (let i = 0; i < itemsInCart.products.length; i++) {
+        const tr = document.createElement('tr');
+        table.appendChild(tr);
+
+        for (let key in itemsInCart.products[i]) {
+            const td = document.createElement('td');
+            td.innerHTML = itemsInCart.products[i][key];
+            tr.appendChild(td);
+        }
+    }
 
     let message = document.createElement("div");
     message.className = "basket-message";
