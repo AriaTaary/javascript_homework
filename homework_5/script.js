@@ -129,7 +129,10 @@ const itemsInCart = {
         }
     ],
     totalBasketPrice() {
-        return this.products.reduce((totalPrice, cartItem) => totalPrice + cartItem.price * cartItem.count, 0);
+        return this.products.reduce((totalPrice, cartItem) => totalPrice + cartItem['цена'] * cartItem['количество'], 0);
+    },
+    totalBasketCount() {
+        return this.products.reduce((totalCount, cartItem) => totalCount + cartItem['количество'], 0);
     }
 };
 
@@ -168,18 +171,18 @@ function Basket(){
 
     let message = document.createElement("div");
     message.className = "basket-message";
-    if (itemsInCart.length === 0){
+    if (itemsInCart.totalBasketCount() === 0){
         message.innerHTML = "<p> Корзина пуста </p>";
     }
     // для определения правильных окончаний для слова "товар" (можно сделать то же самое для "рублей", но я решила пока не делать)
-    else if (itemsInCart.products.length % 10 === 1){
-        message.innerHTML = "<p> В корзине " + itemsInCart.products.length + " товар на сумму " + itemsInCart.totalBasketPrice() + " рублей </p>";
+    else if (itemsInCart.totalBasketCount() % 10 === 1){
+        message.innerHTML = "<p> В корзине " + itemsInCart.totalBasketCount() + " товар на сумму " + itemsInCart.totalBasketPrice() + " рублей </p>";
     }
-    else if (itemsInCart.products.length % 10 > 1 && itemsInCart.products.length % 10 < 5) {
-        message.innerHTML = "<p> В корзине " + itemsInCart.products.length + " товара на сумму " + itemsInCart.totalBasketPrice() + " рублей </p>";
+    else if (itemsInCart.totalBasketCount() % 10 > 1 && itemsInCart.totalBasketCount() % 10 < 5) {
+        message.innerHTML = "<p> В корзине " + itemsInCart.totalBasketCount() + " товара на сумму " + itemsInCart.totalBasketPrice() + " рублей </p>";
     }
     else{
-        message.innerHTML = "<p> В корзине " + itemsInCart.products.length + " товаров на сумму " + itemsInCart.totalBasketPrice() + " рублей </p>";
+        message.innerHTML = "<p> В корзине " + itemsInCart.totalBasketCount() + " товаров на сумму " + itemsInCart.totalBasketPrice() + " рублей </p>";
     }
     document.getElementById('view').appendChild(message);
 }
