@@ -83,15 +83,7 @@ const Cart = {
             this.products.forEach(product => {
                 this.cartListBlock.insertAdjacentHTML('beforeend', this.cartView.itemRender(product));
             });
-            if (Cart.totalBasketCount() % 10 === 1 && Cart.totalBasketCount() !== 11) {
-                this.cartListBlock.insertAdjacentHTML('beforeend', `<td colspan="4"> В корзине ${this.totalBasketCount()} товар на сумму ${this.totalBasketPrice()} ₽</td>`);
-            }
-            else if (Cart.totalBasketCount() % 10 > 1 && Cart.totalBasketCount() % 10 < 5 && (Cart.totalBasketCount() < 12 || Cart.totalBasketCount() > 14)) {
-                this.cartListBlock.insertAdjacentHTML('beforeend', `<td colspan="4"> В корзине ${this.totalBasketCount()} товара на сумму ${this.totalBasketPrice()} ₽</td>`);
-            }
-            else {
-                this.cartListBlock.insertAdjacentHTML('beforeend', `<td colspan="4"> В корзине ${this.totalBasketCount()} товаров на сумму ${this.totalBasketPrice()} ₽</td>`);
-            }
+            this.cartListBlock.insertAdjacentHTML('beforeend', `<td colspan="4"> В корзине ${this.totalBasketCount()} ${this.getProductCountWord()} на сумму ${this.totalBasketPrice()} ₽</td>`);
         } else {
             this.cartListBlock.textContent = 'Корзина пуста';
         }
@@ -105,6 +97,23 @@ const Cart = {
         this.products = [];
         this.render();
     },
+    getProductCountWord() {
+        let count = this.totalBasketCount() % 100;
+        if (count > 19) {
+            count = count % 10;
+        }
+        switch (count) {
+            case 1: {
+                return (`товар`);
+            }
+            case 2: case 3: case 4: {
+                return (`товара`);
+            }
+            default: {
+                return (`товаров`);
+            }
+        }
+    }
 };
 
 Cart.init();
@@ -233,15 +242,7 @@ const Catalog = {
             this.products.forEach(product => {
                 this.catalogListBlock.insertAdjacentHTML('beforeend', this.catalogView.itemRender(product));
             });
-            if (Catalog.totalCatalogCount() % 10 === 1) {
-                this.catalogListBlock.insertAdjacentHTML('beforeend', `<td colspan="4"> В каталоге ${this.totalCatalogCount()} товар</td>`);
-            }
-            else if (Catalog.totalCatalogCount() % 10 > 1 && Catalog.totalCatalogCount() % 10 < 5 && (Cart.totalCatalogCount() < 12 || Cart.totalCatalogCount() > 14)) {
-                this.catalogListBlock.insertAdjacentHTML('beforeend', `<td colspan="4">  В каталоге ${this.totalCatalogCount()} товара</td>`);
-            }
-            else {
-                this.catalogListBlock.insertAdjacentHTML('beforeend', `<td colspan="4"> В каталоге ${this.totalCatalogCount()} товаров</td>`);
-            }
+            this.catalogListBlock.insertAdjacentHTML('beforeend', `<td colspan="4"> В каталоге ${this.totalCatalogCount()} ${this.getProductCountWord()}</td>`);
         } else {
             this.catalogListBlock.textContent = '<td colspan="4">Каталог пуст</td>';
         }
@@ -269,6 +270,23 @@ const Catalog = {
             }
         })
         Cart.init();
+    },
+    getProductCountWord() {
+        let count = this.totalCatalogCount() % 100;
+        if (count > 19) {
+            count = count % 10;
+        }
+        switch (count) {
+            case 1: {
+                return (`товар`);
+            }
+            case 2: case 3: case 4: {
+                return (`товара`);
+            }
+            default: {
+                return (`товаров`);
+            }
+        }
     },
 };
 
