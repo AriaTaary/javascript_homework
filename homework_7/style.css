@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    background: #292A2D;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menuButton{
+    width: 150px;
+    padding: 15px;
+    margin: 20px;
+    color: white;
+    background: #DC4955;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.menuButton:hover{
+    background: #D82F3C;
+}
+#game{
+    border-collapse: collapse;
+    margin: 20px auto 0;
+}
+#menu{
+    display: flex;
+    justify-content: center;
+}
+td.cell{
+    width: 20px;
+    height: 20px;
+    border: 1px dotted #888888;
+    border-collapse: collapse;
+}
+.food{
+    background: url(./food.svg);
+    background-size: contain;
+}
+.wall{
+    background: url(./wall.svg);
+    background-size: contain;
+}
+.snakeBody{
+    background: #0DCA71;
+}
+.snakeHead{
+    background: url(./snake.svg);
+    background-size: contain;
+}
+.snakeHead-up{
+    background: url(./snake.svg);
+    background-size: contain;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.snakeHead-down{
+    background: url(./snake.svg);
+    background-size: contain;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+.snakeHead-left{
+    background: url(./snake.svg);
+    background-size: contain;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.snakeHead-right{
+    background: url(./snake.svg);
+    background-size: contain;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.disabled {
+    background: #7c7c7c;
+}
+.disabled:hover{
+    background: #7c7c7c;
+}
+.score {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2em;
+    color: #888888;
+}
